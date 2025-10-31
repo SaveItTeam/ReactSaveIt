@@ -5,7 +5,6 @@ import React, { useState } from "react";
 
 import DashboardPage from "./Components/Pages/Dashboard/DashboardPage";
 import PainelFuncionarios from "./Components/Pages/PainelAdm";
-import AdicionarFuncionarioForm from "./Components/Pages/AdicionarFuncionario";
 import Pagamentos from "./Components/Pages/Pagamentos";
 import ProdutosPage from "./Components/Pages/Produtos";
 import Login from "./Components/Pages/Login";
