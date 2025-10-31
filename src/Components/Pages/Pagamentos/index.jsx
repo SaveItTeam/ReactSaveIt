@@ -17,7 +17,7 @@ const PainelPagamentos = () => {
   const [empresaCarregandoProdutos, setEmpresaCarregandoProdutos] = useState(null);
   const navigate = useNavigate();
 
-  const backendURL = "http://localhost:8080";
+  const backendURL = "https://apisaveit.onrender.com";
 
   const loginBackend = async () => {
     try {

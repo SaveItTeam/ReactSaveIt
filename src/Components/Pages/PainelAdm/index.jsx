@@ -31,7 +31,7 @@ const PainelAdm = () => {
     write: false,
   });
 
-  const backendURL = "http://localhost:8080";
+  const backendURL = "https://apisaveit.onrender.com";
 
   const fetchDadosAdm = async () => {
     try {

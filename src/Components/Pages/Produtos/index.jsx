@@ -11,7 +11,7 @@ const ProdutosPage = () => {
   const [emailEmpresa, setEmailEmpresa] = useState("");
   const [emailError, setEmailError] = useState("");
 
-  const backendURL = "http://localhost:8080";
+  const backendURL = "https://apisaveit.onrender.com";
 
   useEffect(() => {
     const idEmpresa = localStorage.getItem("idEmpresa");
