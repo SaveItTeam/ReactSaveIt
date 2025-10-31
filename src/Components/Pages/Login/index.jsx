@@ -5,7 +5,7 @@ import "./Login.scss";
 
 export default function LoginAdm() {
   const navigate = useNavigate();
-  const backendURL = "http://localhost:8080";
+  const backendURL = "https://apisaveit.onrender.com";
   const [loading, setLoading] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [senhaError, setSenhaError] = useState("");
