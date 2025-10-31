@@ -1,0 +1,213 @@
+/* ! Arquivo CSS globalmente utilizado para Header e Footer */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+
+* {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    bottom: 0;
+}
+
+
+.titulo-geist {
+    font-family: 'Geist', sans-serif;
+    font-weight: bold;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+header {
+    margin: 0 auto;
+    width: 750px;
+    height: 60px;
+    background-color: #3E5543;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 100px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    position: sticky;
+    top: 5px;
+    z-index: 1000;
+    transition: 0.3 ease;
+    
+    nav {
+        width: 686px;
+        display: flex;
+        justify-content: space-between;
+        margin-left: 74px;
+        margin-right: 74px;
+        font-size: 20px;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+            color: #F0ECE1;
+            transition: 0.3s ease;
+
+            img {
+                width: 50px;
+                height: 50px;
+                padding-top: 5px;
+            }
+
+        }
+
+        a:hover {
+            transition: 0.5s ease;
+            color: #6B8E4E;
+        }
+    }
+}
+
+.transicaoSvg {
+    transition: ease 0.125s;
+}
+
+.botao-admin {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    top: 16px;
+    right: 80px;
+    text-align: center;
+    background-color: #6B8E4E;
+    color: #f0ece1;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 27px;
+    cursor: pointer;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    color: #f0ece1;
+    z-index: 999;
+    font-weight: 400;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: ease 0.3s;
+
+    &:hover {
+        background-color: #608046;
+        color: #f0ece1;
+        transition: 0.3s ease;
+    }
+}
+
+header.scrolled {
+    transition: 0.3 ease;
+    backdrop-filter: blur(10px);
+    background-color: #3e554332;
+}
+
+footer {
+  width: 100%;
+  background-color: #2e2e2e;
+  height: 420px;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  color: #f0ece1;
+
+  h4 {
+    font-size: 25px;
+  }
+
+  a , p {
+    text-decoration: none;
+    color: #f0ece1;
+    font-size: 18px;
+  }
+
+  > div:nth-child(n + 1), address {
+    margin-top: 50px;
+  }
+
+  > div:nth-child(1) {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 80px;
+
+    img {
+        width: 50px;
+    }
+
+    p {
+      font-size: 19px;
+      line-height: 140%;
+      margin-top: 10px;
+    }
+    div {
+      display: flex;
+      gap: 10px;
+      margin-top: -5px;
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background-color: #f0ece13d;
+        border-radius: 100px;
+        transition: .3s ease;
+
+        &:hover {
+            background-color: #6B8E4E;
+            transition: .3s ease;
+        }
+      }
+    }
+  }
+  
+  div:nth-child(2) nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+
+    a {
+      transition: 0.2s ease;
+
+      &:hover {
+        color: white;
+        font-weight: 500;
+        transform: translateX(10px);
+      }
+    }
+  }
+
+  address {
+    h4 {
+      font-style: normal;
+    }
+  }
+
+  > div:last-child {
+    position: absolute;
+    bottom: 0;
+
+    hr {
+      height: 0px;
+      width: 600px;
+      border: 0.5px solid #f0ece1;
+      border-radius: 100px;
+    }
+
+    h4 {
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      text-align: center;
+    }
+  }
+}
