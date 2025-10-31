@@ -1,0 +1,663 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+:root {
+  --cor-fundo: #f0ece1;
+  --cor-titulo: #2e2e2e;
+  --cor-texto: rgba(46, 46, 46, 0.8);
+  --cor-ativo: #6b8e4e;
+
+  /* VARIAVEIS DE CORES PARA OS FORMULARIOS */
+  --cor-fundo-form: white;
+  --cor-titulo-form: #2e2e2e;
+  --cor-input: rgba(46, 46, 46, 0.9);
+  --cor-input-placeholder: rgba(46, 46, 46, 0.3);
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  height: auto;
+}
+
+/* Menu Sidebar */
+nav {
+  width: 7.9rem;
+  height: 100vh;
+  background-color: #405d49;
+  border-radius: 0 1.5rem 1.5rem 0;
+  transition: width 0.3s ease;
+  position: fixed;
+  left: 0;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    #essentia {
+      background-color: #f0ece1;
+      width: 3.7rem;
+      height: 3.7rem;
+      margin-top: 1.8rem;
+      margin-left: 1.9rem;
+      border-radius: 0.5rem;
+      transition: transform 0.3s ease;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        img {
+          width: 3rem;
+          height: 2.7rem;
+          filter: drop-shadow(0 0.5rem 1rem #2e2e2e);
+          margin-left: 0.2rem;
+        }
+      }
+    }
+
+    li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+
+      a {
+        img {
+          width: 3rem;
+          height: 2.7rem;
+        }
+      }
+    }
+  }
+
+  div {
+    height: 22rem;
+    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    li {
+      margin-left: 1.9rem;
+      a {
+        text-decoration: none;
+        color: #f0ece1;
+
+        i {
+          font-size: 3.5rem;
+          transition: 0.3s ease;
+
+          &:hover {
+            color: #6b8e4e;
+            transition: 0.3s ease;
+          }
+        }
+
+        svg {
+          width: 3.5rem;
+          height: 3.5rem;
+          transition: 0.3 ease;
+          &:hover {
+            color: #6b8e4e;
+            transition: 0.3s ease;
+          }
+        }
+      }
+    }
+  }
+}
+nav p {
+  font-size: 20px;
+  font-weight: 450;
+  color: #f0ece1;
+  display: none;
+}
+
+#settings {
+  margin-left: 1.9rem;
+  margin-bottom: 1.8rem;
+  transition: all 0.3s ease;
+
+  a {
+    text-decoration: none;
+    i {
+      font-size: 3.5rem;
+      color: #f0ece1;
+    }
+  }
+}
+
+nav.open {
+  width: 25rem;
+  transition: width 0.3s ease;
+
+  div {
+    transition: 0.3s ease;
+    width: auto;
+  }
+
+  #essentia,
+  #settings {
+    transform: translateX(2rem);
+    transition: 0.3s ease;
+  }
+
+  #settings {
+    a {
+      i {
+        transition: 0.3s ease;
+
+        &:hover {
+          color: #6b8e4e;
+        }
+      }
+    }
+  }
+
+  p {
+    display: inline-block;
+    margin-left: 3rem;
+  }
+}
+
+/* Conteúdo principal */
+main {
+  background: var(--cor-fundo);
+}
+
+.header {
+  width: calc(100% - 8rem);
+  margin-left: 8rem;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.modos {
+  display: flex;
+  gap: 0.5rem;
+  margin-right: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  button {
+    width: 3rem;
+    height: 3rem;
+    background: transparent;
+    border-radius: 0.5rem;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+
+    &:last-child {
+      background: rgba(176, 186, 195, 0.25);
+      svg {
+        margin-bottom: -0.35rem;
+      }
+    }
+  }
+}
+
+.administrador {
+  display: flex;
+  gap: 1rem;
+  padding-right: 12rem;
+  background: transparent;
+  border: none;
+  img {
+    width: 3.8rem;
+    height: 3.8rem;
+    border-radius: 0.5rem;
+  }
+
+  div {
+    p:nth-child(1) {
+      color: var(--cor-titulo);
+      font-family: "Geist", sans-serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+
+    p:last-child {
+      color: var(--cor-texto);
+      font-family: "Geist", sans-serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+    }
+  }
+}
+
+#painel-funcionarios {
+  width: calc(100% - 8rem);
+  margin-left: 8rem;
+  min-height: 100vh;
+  height: auto;
+
+  #texto-principal {
+    padding: 5rem 0 0 6rem;
+    display: flex;
+    h1 {
+      color: var(--cor-titulo);
+      font-family: "Geist", sans-serif;
+      font-size: 3.5rem;
+      font-weight: 500;
+    }
+
+    hr {
+      width: 62.2rem;
+      height: 0.4rem;
+      border-radius: 1rem;
+      background: #6b8e4e;
+      margin-top: 0.5rem;
+      border: none;
+    }
+    p {
+      width: 68.6rem;
+      color: var(--cor-texto);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-top: 1rem;
+    }
+  }
+  .funcionarios-ativos {
+    background-color: #405d49;
+    width: 23rem;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+    gap: 2rem;
+    margin-left: auto;
+    margin-right: 12rem;
+
+    i {
+      color: #f0ece1;
+      font-size: 4rem;
+      margin-left: 1rem;
+    }
+
+    > div {
+      width: 100%;
+      #texto-funcionarios {
+        color: #f0ece1;
+        font-family: "Geist", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 400;
+      }
+
+      #quantidade-funcionarios {
+        color: #f0ece1;
+        font-family: "Geist", sans-serif;
+        font-size: 3rem;
+        font-weight: 400;
+      }
+    }
+  }
+
+  #tabela-funcionarios {
+    width: 121rem;
+    justify-self: center;
+    margin-top: 10.7rem;
+  }
+
+  #tabela-funcionarios .topo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    position: relative;
+  }
+
+  #tabela-funcionarios input[type="search"] {
+    width: 36.4rem;
+    height: 4rem;
+    border-radius: 1rem;
+    background: rgba(176, 186, 195, 0.4);
+    border: none;
+    padding-left: 1.8rem;
+    color: #405d49;
+    font-size: 1.7rem;
+    font-weight: 400;
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+
+  .dark {
+    > i {
+      background-color: #f0ece1;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    input::placeholder {
+      color: #f0ece180;
+    }
+  }
+
+  .topo > i {
+    position: absolute;
+    font-size: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #405d49;
+    left: 33rem;
+    cursor: pointer;
+  }
+
+  #tabela-funcionarios input[type="search"]:focus {
+    outline-color: #405d49;
+    outline-width: 1px;
+  }
+
+  #tabela-funcionarios button {
+    width: 21.4rem;
+    height: 3.8rem;
+    border-radius: 1rem;
+    background-color: #6b8e4e;
+    border: none;
+    color: #f0ece1;
+    font-size: 1.6rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+  }
+
+  #tabela-funcionarios button:hover {
+    background-color: #5a7940;
+  }
+
+  #tabela-funcionarios table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  #tabela-funcionarios thead {
+    background: rgba(176, 186, 195, 0.4);
+    width: 100%;
+    height: 4.6rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    gap: 30px;
+  }
+
+  #tabela-funcionarios th,
+  #tabela-funcionarios td {
+    padding: 1rem 3rem;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--cor-texto);
+  }
+
+  #tabela-funcionarios tbody tr {
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
+
+  #tabela-funcionarios tbody tr:hover {
+    background: rgba(176, 186, 195, 0.15);
+  }
+
+  #tabela-funcionarios .acoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #tabela-funcionarios .acoes button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  #tabela-funcionarios .acoes button i {
+    font-size: 2.5rem;
+    color: var(--cor-texto);
+  }
+
+  #tabela-funcionarios .acoes button:last-child i {
+    color: red;
+    margin-left: -35rem;
+    margin-top: -2rem;
+  }
+}
+/* ===== RESPONSIVIDADE HEADER E NAVBAR ===== */
+
+/* Telas até 1024px (tablets e notebooks menores) */
+/* Telas até 1024px (agora com menu recolhido e botão ativo) */
+@media (max-width: 1024px) {
+  /* Navbar recolhida por padrão */
+  nav {
+    width: 6.5rem;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  nav.open {
+    transform: translateX(0);
+    width: 18rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+  }
+
+  /* Fundo escurecido quando o menu abre */
+  nav.open::after {
+    content: "";
+    position: ffixed;
+    top: 0;
+    left: 100%;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(2px);
+    z-index: -1;
+  }
+
+  /* Header ajustado */
+  .header {
+    width: 100%;
+    margin-left: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+  }
+
+  .menu-toggle {
+    display: block;
+    background: transparent;
+    border: none;
+    font-size: 3rem;
+    color: var(--cor-titulo);
+    cursor: pointer;
+  }
+
+  .administrador {
+    padding-right: 0;
+  }
+
+  nav p {
+    display: none !important;
+  }
+}
+
+/* Quando o menu estiver recolhendo, só o verdinho aparece */
+nav.collapsed {
+  width: 1rem; /* deixa só a faixa verdinha */
+}
+
+/* Telas até 768px (tablets em modo retrato) */
+@media (max-width: 768px) {
+  nav.collapsed {
+    display: 6.5rem;
+  }
+
+  nav.open {
+    width: 18rem;
+  }
+
+  nav p {
+    display: none !important;
+  }
+
+  .header {
+    width: calc(100% - 6.5rem);
+    margin-left: 6.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding: 1rem 2rem;
+  }
+
+  .modos {
+    gap: 0.5rem;
+  }
+
+  .administrador img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .administrador div p:nth-child(1) {
+    font-size: 1.6rem;
+  }
+
+  .administrador div p:last-child {
+    font-size: 1.2rem;
+  }
+}
+
+/* Telas até 480px (celulares) */
+@media (max-width: 480px) {
+  nav {
+    width: 5.5rem;
+    border-radius: 0;
+  }
+
+  nav.open {
+    width: 15rem;
+  }
+
+  nav ul {
+    align-items: center;
+  }
+
+  nav li {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  nav #essentia {
+    margin: 1rem auto;
+  }
+
+  .header {
+    width: calc(100% - 5.5rem);
+    margin-left: 5.5rem;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .modos button {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .administrador {
+    gap: 0.5rem;
+  }
+
+  .administrador img {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  .administrador div p:nth-child(1) {
+    font-size: 1.4rem;
+  }
+
+  .administrador div p:last-child {
+    font-size: 1.1rem;
+  }
+}
+/* ===== BOTÃO MENU HAMBÚRGUER ===== */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 3rem;
+  cursor: pointer;
+  color: var(--cor-titulo);
+  margin-right: auto;
+  margin-left: 2rem;
+}
+
+/* Exibe o botão apenas em telas pequenas */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Quando o menu está aberto, o botão muda de posição */
+  nav.open + main .menu-toggle {
+    position: fixed;
+    left: 17rem;
+    z-index: 1000;
+  }
+
+  nav {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  nav.open {
+    transform: translateX(0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+  }
+
+  /* Escurece o fundo quando o menu está aberto */
+  nav.open::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+
+  /* Ajuste o header para não quebrar */
+  .header {
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+}
