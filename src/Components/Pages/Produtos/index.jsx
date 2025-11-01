@@ -11,7 +11,8 @@ const ProdutosPage = () => {
   const [emailEmpresa, setEmailEmpresa] = useState("");
   const [emailError, setEmailError] = useState("");
 
-  const backendURL = "https://apisaveit.onrender.com";
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
+  const apiToken = import.meta.env.VITE_API_TOKEN;
 
   useEffect(() => {
     const idEmpresa = localStorage.getItem("idEmpresa");
@@ -28,7 +29,7 @@ const ProdutosPage = () => {
           `${backendURL}/api/product/with-showcase-status/${enterpriseId}`,
           {
             headers: {
-              Authorization: "Bearer essentiasaveit-193812-paoea-oei",
+              Authorization: `Bearer ${apiToken}`,
               Accept: "*/*",
             },
           }
