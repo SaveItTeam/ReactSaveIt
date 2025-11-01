@@ -16,17 +16,18 @@ const PainelPagamentos = () => {
   const [carregandoProdutos, setCarregandoProdutos] = useState(false);
   const [empresaCarregandoProdutos, setEmpresaCarregandoProdutos] = useState(null);
   const navigate = useNavigate();
-
-  const backendURL = "https://apisaveit.onrender.com";
-
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
+  const username = import.meta.env.VITE_BACKEND_USER;
+  const password = import.meta.env.VITE_BACKEND_PASSWORD;
+  
   const loginBackend = async () => {
     try {
       const response = await fetch(`${backendURL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: "paulino@gmail.com", password: "Senha1234" }),
+        body: JSON.stringify({ username, password }),
         credentials: "include",
-      });
+      });      
       const text = await response.text();
       const data = JSON.parse(text);
       if (response.ok) setAutenticado(true);

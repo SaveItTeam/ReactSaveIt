@@ -30,15 +30,16 @@ const PainelAdm = () => {
     password: "",
     write: false,
   });
-
-  const backendURL = "https://apisaveit.onrender.com";
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
+  const apiToken = import.meta.env.VITE_API_TOKEN;
+  
 
   const fetchDadosAdm = async () => {
     try {
       setCarregando(true);
       const res = await fetch(`${backendURL}/api/admin/selecionar`, {
         headers: {
-          Authorization: "Bearer essentiasaveit-193812-paoea-oei",
+          Authorization: `Bearer ${apiToken}`,
           Accept: "application/json",
         },
       });
@@ -103,7 +104,7 @@ const PainelAdm = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer essentiasaveit-193812-paoea-oei",
+          Authorization: `Bearer ${apiToken}`
         },
         body: JSON.stringify(novoAdm),
       });
@@ -141,7 +142,7 @@ const PainelAdm = () => {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer essentiasaveit-193812-paoea-oei",
+          Authorization: `Bearer ${apiToken}`
         },
         body: JSON.stringify(editarAdm),
       });
@@ -189,7 +190,7 @@ const PainelAdm = () => {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer essentiasaveit-193812-paoea-oei",
+          Authorization: `Bearer ${apiToken}`
         },
         body: JSON.stringify({ password: novaSenha }),
       });
@@ -212,7 +213,7 @@ const PainelAdm = () => {
       const res = await fetch(`${backendURL}/api/admin/excluir/${id}`, {
         method: "DELETE",
         headers: {
-          Authorization: "Bearer essentiasaveit-193812-paoea-oei",
+          Authorization: `Bearer ${apiToken}`
         },
       });
       if (!res.ok) throw new Error("Erro ao deletar funcionário");
