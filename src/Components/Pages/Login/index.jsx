@@ -30,7 +30,7 @@ export default function LoginAdm() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${backendURL}/api/auth/login`, {
+      const loginResponse = await fetch(`${backendURL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -40,17 +40,26 @@ export default function LoginAdm() {
         }),
       });
 
-      if (!response.ok) {
-        throw new Error("Credenciais inválidas. Verifique seu email e senha.");
+      if (!loginResponse.ok) {
+        const errorData = await loginResponse.json().catch(() => null);
+        throw new Error(
+          (errorData && errorData.message) ||
+            "Credenciais inválidas. Verifique seu email e senha."
+        );
       }
-
       const adminResponse = await fetch(
-        `${backendURL}/api/admin/buscar-por-email?email=${encodeURIComponent(email)}`,
+        `${backendURL}/api/admin/buscar-por-email?email=${encodeURIComponent(
+          email
+        )}`,
         { credentials: "include" }
       );
 
       if (!adminResponse.ok) {
-        throw new Error("Erro ao buscar informações do administrador.");
+        const errorData = await adminResponse.json().catch(() => null);
+        throw new Error(
+          (errorData && errorData.message) ||
+            "Erro ao buscar informações do administrador."
+        );
       }
 
       const adminData = await adminResponse.json();
