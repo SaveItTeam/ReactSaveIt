@@ -5,7 +5,7 @@ import "./Login.scss";
 
 export default function LoginAdm() {
   const navigate = useNavigate();
-  const backendURL = "https://apisaveit.onrender.com"; 
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
   const [loading, setLoading] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [senhaError, setSenhaError] = useState("");
