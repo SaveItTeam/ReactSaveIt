@@ -3,13 +3,14 @@ import Navbar from "./Components/Layout/Navbar";
 import Header from "./Components/Layout/Header";
 import React, { useState } from "react";
 
-import DashboardPage from "./Components/Pages/Dashboard/DashboardPage";
+import DashboardPage from "./Components/Pages/Dashboard";
 import PainelFuncionarios from "./Components/Pages/PainelAdm";
 import Pagamentos from "./Components/Pages/Pagamentos";
 import ProdutosPage from "./Components/Pages/Produtos";
 import Login from "./Components/Pages/Login";
 import Chatbot from "./Components/Pages/Chatbot";
 import RotaProtegida from "./Components/Pages/Routes";
+import Dashboard from "./Components/Pages/Dashboard2";
 
 export default function App() {
   const [funcionarios, setFuncionarios] = useState();
@@ -26,6 +27,18 @@ export default function App() {
               <Navbar />
               <Header />
               <DashboardPage />
+            </>
+          </RotaProtegida>
+        }
+      />
+      <Route
+        path="/dashboard2"
+        element={
+          <RotaProtegida>
+            <>
+              <Navbar />
+              <Header />
+              <Dashboard />
             </>
           </RotaProtegida>
         }
