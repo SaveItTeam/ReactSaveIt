@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Header.scss";
-
+import imagemSaveIt from "../../../assets/logos/logoSaveit.png";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [usuarioNome, setUsuarioNome] = useState("");
@@ -25,7 +25,7 @@ const Header = () => {
       </button>
 
       <div className="administrador">
-        <img src="imagem (4).jpeg" alt="Administrador" />
+        <img src={imagemSaveIt} alt="Administrador" />
         <div>
           <p>{usuarioNome || "Administrador"}</p>
           <p>Admin</p>

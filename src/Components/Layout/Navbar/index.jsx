@@ -28,7 +28,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="#">
+            <Link to="/dashboard2">
               <PieChart size={22} />
               <span>Dash 2</span>
             </Link>
