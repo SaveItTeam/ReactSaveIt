@@ -3,12 +3,12 @@ import { Moon, Sun } from "lucide-react";
 import "./Chatbot.css";
 
 const Chatbot = () => {
-  const API_URL = "https://faq-ia.onrender.com/faq";
+  const API_URL = import.meta.env.VITE_FAQ_API_URL;
   const [messages, setMessages] = useState([
     {
       id: Date.now(),
       sender: "ai",
-      text: "👋 Olá! Eu sou o assistente de FAQ do SaveIt. Como posso te ajudar hoje?",
+      text: "👋 Olá! Eu sou o assistente virtual do SaveIt. Como posso te ajudar hoje?",
     },
   ]);
   const [input, setInput] = useState("");
