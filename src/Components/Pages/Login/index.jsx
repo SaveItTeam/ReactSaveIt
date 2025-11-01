@@ -5,7 +5,7 @@ import "./Login.scss";
 
 export default function LoginAdm() {
   const navigate = useNavigate();
-  const backendURL = "https://apisaveit.onrender.com";
+  const backendURL = "https://apisaveit.onrender.com"; 
   const [loading, setLoading] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [senhaError, setSenhaError] = useState("");
@@ -40,8 +40,20 @@ export default function LoginAdm() {
         }),
       });
 
+      const contentType = response.headers.get("content-type") || "";
+      const responseText = await response.text();
+
       if (!response.ok) {
-        throw new Error("Credenciais inválidas. Verifique seu email e senha.");
+        if (contentType.includes("text/html") || responseText.trim().toLowerCase().startsWith("<!doctype")) {
+          throw new Error("Resposta HTML recebida do servidor (provável redirecionamento ou erro de session/CORS). Verifique CORS e cookie de sessão.");
+        }
+
+        try {
+          const parsed = JSON.parse(responseText || "{}");
+          throw new Error(parsed.error || parsed.message || "Credenciais inválidas. Verifique seu email e senha.");
+        } catch (parseErr) {
+          throw new Error(responseText || "Credenciais inválidas. Verifique seu email e senha.");
+        }
       }
 
       const adminResponse = await fetch(
@@ -49,18 +61,30 @@ export default function LoginAdm() {
         { credentials: "include" }
       );
 
+      const adminContentType = adminResponse.headers.get("content-type") || "";
+      const adminText = await adminResponse.text();
+
       if (!adminResponse.ok) {
-        throw new Error("Erro ao buscar informações do administrador.");
+        if (adminContentType.includes("text/html") || adminText.trim().toLowerCase().startsWith("<!doctype")) {
+          throw new Error("Resposta HTML recebida ao buscar admin (provável falta de sessão). Verifique se o cookie JSESSIONID foi criado e enviado pelo navegador.");
+        }
+        try {
+          const parsed = JSON.parse(adminText || "{}");
+          throw new Error(parsed.error || parsed.message || "Erro ao buscar informações do administrador.");
+        } catch (parseErr) {
+          throw new Error(adminText || "Erro ao buscar informações do administrador.");
+        }
       }
 
-      const adminData = await adminResponse.json();
-
+      const adminData = JSON.parse(adminText);
       localStorage.setItem("usuarioNome", adminData.name);
       localStorage.setItem("usuarioEmail", adminData.email);
 
       navigate("/pagamentos");
     } catch (err) {
-      setSenhaError(err.message);
+      // exibe mensagem amigável
+      console.error("Erro no login:", err);
+      setSenhaError(err.message || "Erro desconhecido no login.");
     } finally {
       setLoading(false);
     }
