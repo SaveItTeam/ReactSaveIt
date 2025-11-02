@@ -61,7 +61,7 @@ const Navbar = () => {
 
         <li className="settings">
           <Link to="#">
-            <Settings size={22} />
+            
           </Link>
         </li>
       </ul>
