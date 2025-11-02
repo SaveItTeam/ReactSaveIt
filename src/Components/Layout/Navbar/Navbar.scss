@@ -1,11 +1,11 @@
 .navbar {
   width: 75px;
   height: 100vh;
-  background-color: #3E5543;
+  background-color: #3e5543;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease, transform 0.3s ease-in-out;
   position: fixed;
   left: 0;
   top: 0;
@@ -13,7 +13,7 @@
   border-bottom-right-radius: 10px;
   overflow: hidden;
   color: #f0ece1;
-  z-index: 100;
+  z-index: 150;
 
   &:hover {
     width: 220px;
@@ -30,7 +30,6 @@
     justify-content: space-between;
   }
 
-  /* LOGO */
   .logo {
     display: flex;
     justify-content: center;
@@ -45,11 +44,10 @@
     }
   }
 
-  /* MENU */
   .menu {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Ícones centralizados no modo recolhido */
+    align-items: center;
     gap: 8px;
     padding-top: 10px;
 
@@ -92,9 +90,8 @@
     }
   }
 
-  /* EXPANDIR COM HOVER */
   &:hover .menu {
-    align-items: flex-start; /* Ícones à esquerda */
+    align-items: flex-start;
   }
 
   &:hover .menu li a {
@@ -106,27 +103,35 @@
     opacity: 1;
     width: auto;
   }
+}
 
-  /* BOTÃO DE CONFIGURAÇÃO (BOTTOM) */
-  .settings {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  background-color: #3e5543;
+  border-radius: 8px;
+  padding: 6px;
+  z-index: 200;
+  cursor: pointer;
+}
 
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #f0ece1;
-      padding: 10px;
-      border-radius: 50%;
-      transition: background-color 0.2s ease;
+@media (max-width: 768px) {
+  .navbar {
+    transform: translateX(-100%);
+    width: 200px;
 
-      &:hover {
-        background-color: #506e59;
-      }
+    &:hover {
+      width: 200px;
     }
+  }
+
+  .navbar.aberta {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: block;
   }
 }
