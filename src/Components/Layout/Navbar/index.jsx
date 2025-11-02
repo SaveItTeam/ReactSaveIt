@@ -34,6 +34,12 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
+            <Link to="/dashboard3">
+              <AlertTriangle size={22} />
+              <span>Dash 3</span>
+            </Link>
+          </li>
+          <li>
             <Link to="/pagamentos">
               <List size={22} />
               <span>Listar Empresas</span>

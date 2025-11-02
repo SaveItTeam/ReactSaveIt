@@ -11,6 +11,7 @@ import Login from "./Components/Pages/Login";
 import Chatbot from "./Components/Pages/Chatbot";
 import RotaProtegida from "./Components/Pages/Routes";
 import Dashboard from "./Components/Pages/Dashboard2";
+import Dashboard3 from "./Components/Pages/Dashboard3";
 
 export default function App() {
   const [funcionarios, setFuncionarios] = useState();
@@ -39,6 +40,18 @@ export default function App() {
               <Navbar />
               <Header />
               <Dashboard />
+            </>
+          </RotaProtegida>
+        }
+      />
+       <Route
+        path="/dashboard3"
+        element={
+          <RotaProtegida>
+            <>
+              <Navbar />
+              <Header />
+              <Dashboard3 />
             </>
           </RotaProtegida>
         }
