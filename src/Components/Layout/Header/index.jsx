@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Header.scss";
-import imagemSaveIt from "./logoSaveit.png";
+import imagemSaveIt from "../../../assets/logos/saveIt.svg";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [usuarioNome, setUsuarioNome] = useState("");
